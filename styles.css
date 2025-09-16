@@ -96,15 +96,15 @@ font-family: var(--font-serif);
     transform: none !important;
   }
 
-  /* Smooth scrolling for mobile */
+  /* Natural scrolling for mobile - removed smooth scroll behavior */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
-  /* Prevent momentum scrolling issues */
+  /* Enable natural momentum scrolling */
   body {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: auto;
+    overscroll-behavior: auto;
   }
 
   /* Prevent layout shifts */
@@ -128,12 +128,23 @@ font-family: var(--font-serif);
   input[type="text"], input[type="email"] {
     font-size: 16px;
   }
+
+  /* Ensure natural scrolling in RSVP section */
+  #rsvp {
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: auto;
+  }
+
+  /* Allow natural touch behavior for form elements */
+  #rsvp form {
+    touch-action: auto;
+  }
 }
 
 /* Global mobile optimizations */
 * {
-  /* Prevent text selection from causing scroll issues */
-  -webkit-touch-callout: none;
+  /* Allow natural touch behavior */
+  -webkit-touch-callout: default;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
