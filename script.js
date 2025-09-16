@@ -6,6 +6,44 @@ const countdownElements = {
   seconds: document.getElementById('seconds')
 };
 
+// Theme management
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function getStoredTheme() {
+  return localStorage.getItem('theme');
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  setTheme(newTheme);
+}
+
+function initializeTheme() {
+  const storedTheme = getStoredTheme();
+  if (storedTheme) {
+    setTheme(storedTheme);
+  } else {
+    const systemTheme = getSystemTheme();
+    setTheme(systemTheme);
+  }
+}
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!getStoredTheme()) {
+    const newTheme = e.matches ? 'dark' : 'light';
+    setTheme(newTheme);
+  }
+});
+
 // Function to update countdown
 function updateCountdown() {
   const weddingDate = new Date(2026, 3, 17, 12, 30, 0).getTime();
@@ -53,7 +91,17 @@ function stopCountdown() {
 }
 
 // Start countdown when page loads
-document.addEventListener('DOMContentLoaded', startCountdown);
+document.addEventListener('DOMContentLoaded', () => {
+  startCountdown();
+  initializeTheme();
+
+  // Theme toggle event listener
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+
+});
 
 // Stop countdown when page is not visible to save resources
 document.addEventListener('visibilitychange', () => {
@@ -65,11 +113,9 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // Handle map button click
-document.addEventListener('DOMContentLoaded', () => {
-  const openMapBtn = document.getElementById('open-map-btn');
-  if (openMapBtn) {
-    openMapBtn.addEventListener('click', () => {
-      window.open('https://yandex.ru/maps/?ll=39.198000%2C51.659000&z=17&mode=search&text=%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6+%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C+%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0+11&lang=ru_RU', '_blank');
-    });
-  }
-});
+const openMapBtn = document.getElementById('open-map-btn');
+if (openMapBtn) {
+  openMapBtn.addEventListener('click', () => {
+    window.open('https://yandex.ru/maps/?ll=39.198000%2C51.659000&z=17&mode=search&text=%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6+%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C+%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0+11&lang=ru_RU', '_blank');
+  });
+}
