@@ -1,0 +1,19 @@
+:root {
+--c-primary: #e5b148;
+--c-secondary: #f3efe8;
+--c-text-primary: #1b160e;
+--c-text-secondary: #957e50;
+--font-serif: 'Playfair Display', serif;
+--font-sans: 'Raleway', sans-serif;
+}
+body {
+font-family: var(--font-sans);
+background-color: #fbfaf8;
+color: var(--c-text-primary);
+}
+h1, h2, h3 {
+font-family: var(--font-serif);
+}
+.btn-primary {
+@apply bg-[var(--c-primary)] text-[var(--c-text-primary)] hover:bg-opacity-90 transition-colors;
+}

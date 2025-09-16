@@ -1,0 +1,154 @@
+<html>
+
+<head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Playfair+Display%3Awght%40400%3B700&amp;family=Raleway%3Awght%40400%3B500%3B700"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="antialiased">
+    <div class="relative w-full min-h-screen flex flex-col items-center overflow-x-hidden">
+        <header class="w-full max-w-5xl px-4 sm:px-8 py-8 flex justify-center text-center">
+            <nav class="flex gap-6 sm:gap-10 text-sm tracking-widest uppercase">
+                <a class="hover:text-[var(--c-primary)] transition-colors" href="#story">История</a>
+                <a class="hover:text-[var(--c-primary)] transition-colors" href="#gallery">Галерея</a>
+                <a class="hover:text-[var(--c-primary)] transition-colors" href="#rsvp">Подтверждение</a>
+            </nav>
+        </header>
+        <main class="w-full max-w-5xl px-4 sm:px-8">
+            <section
+                class="relative flex flex-col items-center justify-start min-h-[60vh] sm:min-h-[70vh] text-center text-white pt-16 pb-16 rounded-xl overflow-hidden bg-cover bg-center"
+                style='background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("image/2.jpg");'>
+                <div class="z-10 flex flex-col items-center mt-12">
+                    <h2 class="text-xl sm:text-2xl font-light tracking-wider mb-2">Мы женимся</h2>
+                    <h1 class="text-5xl sm:text-7xl font-bold leading-tight">Дмитрий и Мила</h1>
+                    <p class="mt-4 text-lg sm:text-xl font-light">17 апреля 2026</p>
+                </div>
+            </section>
+            <section class="py-16 sm:py-20 text-center" id="countdown">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8">До свадьбы осталось</h2>
+                <div class="flex justify-center gap-4 sm:gap-8">
+                    <div
+                        class="flex flex-col items-center justify-center w-24 h-24 sm:w-32 sm:h-32 bg-[var(--c-secondary)] rounded-full border-2 border-[var(--c-primary)]">
+                        <span id="days" class="text-3xl sm:text-4xl font-bold">12</span>
+                        <span class="text-sm uppercase tracking-widest">Дней</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center justify-center w-24 h-24 sm:w-32 sm:h-32 bg-[var(--c-secondary)] rounded-full border-2 border-[var(--c-primary)]">
+                        <span id="hours" class="text-3xl sm:text-4xl font-bold">08</span>
+                        <span class="text-sm uppercase tracking-widest">Часов</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center justify-center w-24 h-24 sm:w-32 sm:h-32 bg-[var(--c-secondary)] rounded-full border-2 border-[var(--c-primary)]">
+                        <span id="minutes" class="text-3xl sm:text-4xl font-bold">30</span>
+                        <span class="text-sm uppercase tracking-widest">Минут</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center justify-center w-24 h-24 sm:w-32 sm:h-32 bg-[var(--c-secondary)] rounded-full border-2 border-[var(--c-primary)]">
+                        <span id="seconds" class="text-3xl sm:text-4xl font-bold">45</span>
+                        <span class="text-sm uppercase tracking-widest">Секунд</span>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 sm:py-20 text-center max-w-3xl mx-auto" id="story">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6">Наша история</h2>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    Все началось с неожиданной встречи в маленьком уютном кафе в центре города. Мы проговорили несколько
+                    часов, и с каждой минутой становилось ясно, что это не просто случайное знакомство. Это была
+                    встреча, которая перевернула наши миры и положила начало нашей прекрасной истории любви.
+                </p>
+            </section>
+            <section class="py-16 sm:py-20" id="gallery">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">Галерея</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Couple photo 1"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/1.jpg" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Couple photo 2"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/IMG_6131.heic" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Couple photo 3"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/camphoto_52182039.JPG" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Couple photo 4"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/IMG_0948.JPG" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Couple photo 5"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/IMG_7091.jpg" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Couple photo 6"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/IMG_8786.JPG" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Photo 1"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/1.jpg" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Photo 2"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/2.jpg" />
+                    </div>
+                    <div class="group relative overflow-hidden rounded-lg">
+                        <img alt="Photo 3"
+                            class="w-full h-full object-cover aspect-square transform group-hover:scale-105 transition-transform duration-300"
+                            src="image/IMG_7091.jpg" />
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 sm:py-20 bg-[var(--c-secondary)] rounded-xl my-16" id="rsvp">
+                <div class="max-w-xl mx-auto text-center px-4">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">Подтвердите свое присутствие</h2>
+                    <p class="mb-8 text-gray-700">Мы будем рады видеть вас на нашем празднике!</p>
+                    <form class="flex flex-col gap-6">
+                        <input
+                            class="form-input w-full rounded-lg border-gray-300 bg-white h-14 px-4 focus:border-[var(--c-primary)] focus:ring focus:ring-[var(--c-primary)] focus:ring-opacity-50 transition"
+                            placeholder="Ваше имя" type="text" />
+                        <input
+                            class="form-input w-full rounded-lg border-gray-300 bg-white h-14 px-4 focus:border-[var(--c-primary)] focus:ring focus:ring-[var(--c-primary)] focus:ring-opacity-50 transition"
+                            placeholder="Ваш адрес электронной почты" type="email" />
+                        <button
+                            class="btn-primary flex items-center justify-center rounded-lg h-12 px-6 text-base font-bold tracking-wider uppercase"
+                            type="submit">
+                            Отправить
+                        </button>
+                    </form>
+                </div>
+            </section>
+            <section class="py-16 sm:py-20 text-center" id="location">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8">Место проведения</h2>
+                <div
+                    class="w-full aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-[var(--c-primary)]">
+                    <img alt="Wedding Venue" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkurjLzH5f-jKkMAoqadWKJfGLXE2baQUtaQheJZnX_aoBVIucvJarK2DekRNrywdT6Zb-elo0W4PDfXpk2Tw1ReqvY8nTwFLtENLeL0qjyYtyd9w4RnmGhiia8RieQBO4ogoA67qdHaM9JuAopjvMr55iKI6t_vSk_lgO6JE0m_SqlYQ7xLDClbeDDTsEfYKQXt-cz1ZmkAAA7KmOekcB0-zGhLgcnspL1IYFgWgAkonOlaeeypnCa9M_yop4lpja_mwx1C97nqcn" />
+                </div>
+                <p class="mt-6 text-lg">Ресторан "Золотой Сад", ул. Цветочная, 15, Москва</p>
+            </section>
+        </main>
+        <footer class="w-full max-w-5xl px-4 sm:px-8 py-12 text-center text-gray-500">
+            <p class="font-serif text-2xl mb-2">Д &amp; М</p>
+            <p>17.04.2026</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
