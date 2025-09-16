@@ -40,4 +40,76 @@ font-family: var(--font-serif);
   .btn-primary {
     height: 3rem;
   }
+
+  /* Disable hover effects on mobile to prevent scroll jerking */
+  .group:hover .group-hover\:scale-105 {
+    transform: none !important;
+  }
+
+  /* Prevent layout shifts by ensuring images don't scale on touch */
+  img {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+  /* Disable image scaling on tablets and phones */
+  .group:hover img {
+    transform: none !important;
+  }
+
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent momentum scrolling issues */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Prevent layout shifts */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Ensure consistent spacing */
+  section {
+    contain: layout style paint;
+  }
+
+  /* Optimize form elements for mobile */
+  input, button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Prevent zoom on input focus */
+  input[type="text"], input[type="email"] {
+    font-size: 16px;
+  }
+}
+
+/* Global mobile optimizations */
+* {
+  /* Prevent text selection from causing scroll issues */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Re-enable text selection for form elements */
+input, textarea {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }

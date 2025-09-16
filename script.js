@@ -1,3 +1,11 @@
+// Cache DOM elements to reduce lookups
+const countdownElements = {
+  days: document.getElementById('days'),
+  hours: document.getElementById('hours'),
+  minutes: document.getElementById('minutes'),
+  seconds: document.getElementById('seconds')
+};
+
 // Function to update countdown
 function updateCountdown() {
   const weddingDate = new Date(2026, 3, 17, 12, 30, 0).getTime();
@@ -10,21 +18,48 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById('days').innerText = days;
-    document.getElementById('hours').innerText = hours;
-    document.getElementById('minutes').innerText = minutes;
-    document.getElementById('seconds').innerText = seconds;
+    // Batch DOM updates to reduce reflows
+    requestAnimationFrame(() => {
+      countdownElements.days.textContent = days;
+      countdownElements.hours.textContent = hours;
+      countdownElements.minutes.textContent = minutes;
+      countdownElements.seconds.textContent = seconds;
+    });
   } else {
     // Wedding has passed
-    document.getElementById('days').innerText = '0';
-    document.getElementById('hours').innerText = '0';
-    document.getElementById('minutes').innerText = '0';
-    document.getElementById('seconds').innerText = '0';
+    requestAnimationFrame(() => {
+      countdownElements.days.textContent = '0';
+      countdownElements.hours.textContent = '0';
+      countdownElements.minutes.textContent = '0';
+      countdownElements.seconds.textContent = '0';
+    });
   }
 }
 
-// Update every second
-setInterval(updateCountdown, 1000);
+// Use requestAnimationFrame for smoother updates
+let countdownInterval;
 
-// Initial call
-updateCountdown();
+function startCountdown() {
+  updateCountdown();
+  countdownInterval = setInterval(() => {
+    requestAnimationFrame(updateCountdown);
+  }, 1000);
+}
+
+function stopCountdown() {
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+}
+
+// Start countdown when page loads
+document.addEventListener('DOMContentLoaded', startCountdown);
+
+// Stop countdown when page is not visible to save resources
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopCountdown();
+  } else {
+    startCountdown();
+  }
+});
