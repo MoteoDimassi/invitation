@@ -63,3 +63,13 @@ document.addEventListener('visibilitychange', () => {
     startCountdown();
   }
 });
+
+// Handle map button click
+document.addEventListener('DOMContentLoaded', () => {
+  const openMapBtn = document.getElementById('open-map-btn');
+  if (openMapBtn) {
+    openMapBtn.addEventListener('click', () => {
+      window.open('https://yandex.ru/maps/?ll=39.198000%2C51.659000&z=17&mode=search&text=%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6+%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C+%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0+11&lang=ru_RU', '_blank');
+    });
+  }
+});

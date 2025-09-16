@@ -113,3 +113,28 @@ input, textarea {
   -ms-user-select: text;
   user-select: text;
 }
+
+/* Map widget optimizations for mobile */
+iframe {
+  max-width: 100%;
+  border: none;
+  pointer-events: auto;
+}
+
+/* Prevent map from interfering with page scroll on mobile */
+@media (max-width: 768px) {
+  iframe {
+    touch-action: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure map container doesn't cause layout shifts */
+  .map-container {
+    contain: layout style paint;
+  }
+
+  /* Optimize iframe loading */
+  iframe {
+    loading: lazy;
+  }
+}
