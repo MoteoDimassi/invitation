@@ -17,3 +17,27 @@ font-family: var(--font-serif);
 .btn-primary {
 @apply bg-[var(--c-primary)] text-[var(--c-text-primary)] hover:bg-opacity-90 transition-colors;
 }
+
+/* Custom styles for very small screens */
+@media (max-width: 479px) {
+  /* Reduce navigation gap on very small screens */
+  header nav {
+    gap: 1rem;
+  }
+
+  /* Adjust padding for main sections */
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Smaller form inputs on very small screens */
+  .form-input {
+    height: 3rem;
+  }
+
+  /* Adjust button height */
+  .btn-primary {
+    height: 3rem;
+  }
+}
